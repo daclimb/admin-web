@@ -1,5 +1,4 @@
 name: admin-web CI
-description: admin-web CI
 
 on:
   push:
