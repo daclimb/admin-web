@@ -1,19 +1,12 @@
 <template>
-  <MainView/>
+  <LoginView/>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 </style>
 <script>
-import MainView from '@/views/MainView'
+import LoginView from '@/views/LoginView'
 export default {
-  components: { MainView }
+  components: { LoginView },
 }
 </script>
