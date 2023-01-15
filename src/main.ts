@@ -6,3 +6,9 @@ import {Apis} from "@/services/api/apis";
 createApp(App).use(router).mount('#app')
 
 export const apis = new Apis('http://localhost');
+
+declare global {
+    interface Window {
+        kakao: any;
+    }
+}
