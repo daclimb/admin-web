@@ -1,8 +1,8 @@
-import {UserApi} from "@/services/api/user.api";
 import axios from "axios";
+import {GymApi} from "../../../openapi/out";
 
 export class Apis {
-    public readonly user: UserApi;
+    public readonly gym: GymApi;
 
     constructor(
         url: string
@@ -13,7 +13,7 @@ export class Apis {
                 'Content-Type': 'application/json'
             }
         });
-        this.user = new UserApi(client);
+        this.gym = new GymApi(undefined, url, client);
     }
 
 }
