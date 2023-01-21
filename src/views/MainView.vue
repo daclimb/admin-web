@@ -13,7 +13,7 @@ export default {
   name: 'MainView',
   methods: {
     onClickAddGym() {
-      console.log("add gym")
+      this.$router.push("/gym")
     }
   }
 }

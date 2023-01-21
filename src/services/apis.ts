@@ -1,5 +1,5 @@
 import axios from "axios";
-import {GymApi} from "../../../openapi/out";
+import {GymApi} from "../../openapi/out";
 
 export class Apis {
     public readonly gym: GymApi;
@@ -15,5 +15,4 @@ export class Apis {
         });
         this.gym = new GymApi(undefined, url, client);
     }
-
 }

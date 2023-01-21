@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import MainView from '../views/MainView.vue'
-import GymDetailView from '../views/GymDetailView.vue'
 import GymEditView from '../views/GymEditView.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -10,18 +9,13 @@ const routes: Array<RouteRecordRaw> = [
     component: MainView
   },
   {
-    path: '/gym-detail',
-    name: 'gym-detail',
-    component: GymDetailView
-  },
-  {
-    path: '/gym-edit',
-    name: 'gym-add',
+    path: '/gym',
+    name: 'new-gym',
     component: GymEditView
   },
   {
-    path: '/gym-edit/:id',
-    name: 'gym-update',
+    path: '/gym/:id',
+    name: 'edit-gym',
     component: GymEditView
   }
 ]
