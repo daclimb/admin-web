@@ -1,7 +1,7 @@
 <template>
   <div class="header-main">
     <div class="header-content">
-      <span class="logo">Daclimb-admin</span>
+      <span class="logo" @click="onClickLogo">Daclimb-admin</span>
     </div>
     <div class="divider"/>
   </div>
@@ -9,7 +9,12 @@
 
 <script>
 export default {
-  name: 'HeaderView'
+  name: 'HeaderView',
+  methods: {
+    onClickLogo() {
+      this.$router.push("/");
+    }
+  }
 }
 </script>
 
@@ -29,7 +34,7 @@ export default {
     .logo {
       color: grey;
       font-weight: bold;
-      font-size: 32px;
+      font-size: x-large;
 
       &:hover {
         cursor: pointer;
