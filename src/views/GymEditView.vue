@@ -7,14 +7,16 @@
       <div class="gym-infos">
         <label for="name">이름</label>
         <input id="name" class="name" v-model="gym.name"/>
-        <label for="description">설명</label>
-        <textarea id="description" class="description" v-model="gym.description"/>
         <label for="address">주소</label>
         <p id="address" class="address">{{ gym.address }}</p>
         <input class="detailed-address" placeholder="상세 주소" v-model="detailedAddress">
         <button class="search-address" @click="onClickSearchAddressButton">주소 검색</button>
-        <label for="map">지도</label>
-        <div id="map" style="width:100%;height:400px;"></div>
+        <label for="description">설명</label>
+        <textarea id="description" class="description" v-model="gym.description"/>
+        <label for="images-container">이미지</label>
+        <div class="images-container" id="images-container">
+          <img class="image" v-for="(url, idx) in gym.imageIds" :src="url" v-bind:key="idx"/>
+        </div>
       </div>
     </div>
   </div>
@@ -23,7 +25,6 @@
 <script>
 
 import { mockData } from '@/mock/mock-data'
-import { MapController } from '@/services/map'
 import logger from '@/services/logger'
 
 export default {
@@ -36,14 +37,6 @@ export default {
     }
   },
   methods: {
-    loadMap() {
-      let container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-      this.mapService = new MapController(container, this.gym.latitude, this.gym.longitude);
-      this.mapService.setMarker(this.gym.latitude, this.gym.longitude, this.createMarkerContent());
-    },
-    createMarkerContent() {
-      return `<div style="display: flex; flex-direction: column; justify-content: center; align-items: center"><p>${this.gym.name}</p></div>`
-    },
     onClickSaveButton() {
       logger.verbose("GymEditView.onClickSaveButton", "trying to save gym");
     },
@@ -64,8 +57,6 @@ export default {
     } else {
       logger.verbose("GymEditView.mounted", `its new gym`);
     }
-    this.address = this.gym.address;
-    this.loadMap()
   }
 }
 </script>
@@ -101,9 +92,14 @@ export default {
         margin-bottom: 10px;
       }
 
-      .validate-address-message {
-        color: red;
-        font-size: small;
+      label {
+        font-weight: bold;
+      }
+
+      .images-container {
+        .image {
+          height: 200px;
+        }
       }
     }
 

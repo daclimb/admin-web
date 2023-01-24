@@ -13,6 +13,7 @@ declare global {
     interface Window {
         // eslint-disable-next-line
         kakao: any;
+        // eslint-disable-next-line
         daum: any;
     }
 }
